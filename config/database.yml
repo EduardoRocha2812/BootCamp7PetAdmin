@@ -5,6 +5,8 @@ default: &default
   host: postgres
   # host: postgres => dava falha: Could not translate host name "postgres" to address: 
   user: postgres
+  POSTGRES_USER: 'postgres'
+  POSTGRES_HOST_AUTH_METHOD: trust
 
 development:
   <<: *default

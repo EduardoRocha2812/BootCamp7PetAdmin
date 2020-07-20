@@ -2,7 +2,7 @@ version: '2'
 
 services:
   postgres:
-    image: postgres:9.5
+    image: postgres
     environment: 
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
@@ -68,10 +68,16 @@ services:
       - /box
 
   mailcatcher:
-    image: yappabe/mailcatcher
+    image: tophfr/mailcatcher
     ports:
-      - 1025:1025
-      - 1080:1080
+      - 1025:25
+      - 1080:80
+  
+      # mailcatcher:
+  #  image: yappabe/mailcatcher
+  #  ports:
+  #    - 1025:1025
+  #    - 1080:1080
 
 volumes:
   redis:
