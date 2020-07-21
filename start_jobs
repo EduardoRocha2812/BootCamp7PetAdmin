@@ -1,2 +1,3 @@
 # Roda os jobs
+# bundle exec redis-server
 bundle exec sidekiq -q emails
