@@ -3,7 +3,10 @@
 
   main.content
     = fae_input f, :title
-    = fae_input f, :value
+    = fae_pulldown f, :discount_type, size: 'short', collection: Discount.discount_types.to_a, selected: Discount.discount_types[@item.discount_type]
+    /! fae_pulldown f, :status, size: 'long', collection: Sell.statuses.to_a, selected: Sell.statuses[@item.status]
     /! = fae_input f, :value
-    = fae_prefix f, :value, prefix: '$', placeholder: '50.00'
+    /! = fae_input f, :value
+    /! = fae_prefix f, :value, prefix: (f.Discount.type=1)? '%' : '$' , placeholder: '50.00'
+    = fae_prefix f, :value, prefix: '$' , placeholder: '50.00'
 
