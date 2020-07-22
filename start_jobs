@@ -1,3 +1,4 @@
 # Roda os jobs
 # bundle exec redis-server
+# Roda o sidekiq chamando a fila (queue) emails
 bundle exec sidekiq -q emails
