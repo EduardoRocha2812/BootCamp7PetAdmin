@@ -7,11 +7,12 @@ class Sell < ApplicationRecord
   belongs_to :client
   
   #Não vai existir esta interface do lado produto (-> é uma Venda que adiciona um produto)
+  # dependent destroy deleta dados dependentes... evita erro de integridade
   has_many :sell_products
-  has_many :products, through: :sell_products
-#Não vai existir esta interface do lado serviço (-> é uma Venda que adiciona um serviço)
+  has_many :products, through: :sell_products, dependent: :destroy
+  #Não vai existir esta interface do lado serviço (-> é uma Venda que adiciona um serviço)
   has_many :sell_services
-  has_many :services, through: :sell_services
+  has_many :services, through: :sell_services, dependent: :destroy
   
   before_save :set_total 
 
