@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   end
   # mount Fae below your admin namespec
   mount Fae::Engine => '/admin'
-
+  
+  # Monta Rota do Sidekiq -> localhost:3000/sidekiq
   mount Sidekiq::Web => '/sidekiq'
 end 
 
